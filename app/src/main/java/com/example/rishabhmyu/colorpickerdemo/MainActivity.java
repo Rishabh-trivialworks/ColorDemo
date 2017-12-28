@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +19,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends Activity {
-    private static final int REQUEST_CAMERA_PERMISSION_RESULT = 0;
     SimpleDrawingView objSimpleDrawingView;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +26,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         VerticalSlideColorPicker colorPicker = (VerticalSlideColorPicker) findViewById(R.id.color_picker);
         this.objSimpleDrawingView = (SimpleDrawingView) findViewById(R.id.simpleDrawingView1);
-//        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-//            requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 0);
-//        }
+        if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
+            requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 0);
+        }
         findViewById(R.id.textcolor).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity.this.objSimpleDrawingView.onClickUndo();
