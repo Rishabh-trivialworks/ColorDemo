@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/activity_main"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:colorpicker="http://schemas.android.com/tools">
+
+    <com.example.rishabhmyu.colorpickerdemo.SimpleDrawingView
+        android:id="@+id/simpleDrawingView1"
+        android:background="@mipmap/demo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
+
+    <com.example.rishabhmyu.colorpickerdemo.VerticalSlideColorPicker
+        colorpicker:borderColor="@android:color/black"
+        colorpicker:borderWidth="2dp"
+        colorpicker:colors="@array/default_colors"
+        android:id="@+id/color_picker"
+        android:layout_height="300dp"
+        android:layout_width="20dp" />
+
+    <Button
+        android:id="@+id/textcolor"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Selected color:"
+        android:visibility="visible" />
+</RelativeLayout>
